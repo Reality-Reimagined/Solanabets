@@ -54,7 +54,7 @@ pub mod betting_pools {
         require!(amount <= pool.max_bet, ErrorCode::InvalidBetAmount);
 
         // Calculate and deduct fee
-        let fee = (amount * pool.fee_percentage) / 10000;
+        let fee = (amount * (pool.fee_percentage as u64)) / 10000;
         let bet_amount = amount - fee;
 
         // Transfer tokens to pool
@@ -212,7 +212,7 @@ pub struct Bet {
 }
 
 impl Pool {
-    pub const LEN: usize = 32 + 8 + 8 + 8 + 8 + 8 + 8 + 2 + 1 + 32 + 32 + 1024;
+    pub const LEN: usize = 8 + 32 + 8 + 8 + 8 + 8 + 8 + 8 + 2 + 1 + 32 + 33 + 4 + (1000 * 88);
 
     fn update_odds(&mut self) -> Result<()> {
         let total_pool = self.total_home_bets.checked_add(self.total_away_bets)
