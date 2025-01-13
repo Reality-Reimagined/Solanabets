@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer};
 
-declare_id!("your_program_id");
+declare_id!("BETSNNcnFGDW7yKKdPAJzxv8DmF3A6ovM7TYzFkDGyK");
 
 #[error_code]
 pub enum ErrorCode {
@@ -181,6 +181,7 @@ pub struct SettlePool<'info> {
     pub pool_token_account: Account<'info, TokenAccount>,
     #[account(mut)]
     pub winner_token_account: Account<'info, TokenAccount>,
+    /// CHECK: This is safe because we verify it's a PDA derived from the pool
     pub pool_authority: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
 }

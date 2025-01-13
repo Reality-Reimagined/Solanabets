@@ -3,7 +3,7 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-betting_pools = "your_program_id"
+betting_pools = "BETSNNcnFGDW7yKKdPAJzxv8DmF3A6ovM7TYzFkDGyK"
 
 [registry]
 url = "https://api.apr.dev"
